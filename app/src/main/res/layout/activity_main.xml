@@ -5,7 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorAccent"
-    tools:context=".MainActivity" >
+    tools:context=".MainActivity">
+
+    <ImageButton
+        android:id="@+id/image_button_register"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/rounded_image_button_register"
+        android:contentDescription="TODO"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_camera" />
 
     <EditText
         android:id="@+id/username_editText_registration"
@@ -14,21 +27,21 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
-        android:background="#FFFFFF"
+        android:background="@drawable/rounded_edittext_register_login"
         android:ems="10"
         android:hint="Username"
-        android:paddingLeft="16dp"
         android:inputType="textPersonName"
+        android:paddingLeft="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/image_button_register" />
 
     <EditText
         android:id="@+id/email_editText_registration"
         android:layout_width="0dp"
         android:layout_height="@dimen/user_height"
         android:layout_marginTop="8dp"
-        android:background="@android:color/background_light"
+        android:background="@drawable/rounded_edittext_register_login"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
@@ -42,7 +55,7 @@
         android:layout_width="0dp"
         android:layout_height="@dimen/user_height"
         android:layout_marginTop="8dp"
-        android:background="@android:color/background_light"
+        android:background="@drawable/rounded_edittext_register_login"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
@@ -54,9 +67,12 @@
     <Button
         android:id="@+id/register_button_registration"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/user_height"
         android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_button"
         android:text="Register"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/password_editText_registration"
         app:layout_constraintStart_toStartOf="@+id/password_editText_registration"
         app:layout_constraintTop_toBottomOf="@+id/password_editText_registration" />
@@ -66,10 +82,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        android:textSize="16sp"
         android:text="Already have an Account?"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/register_button_registration"
         app:layout_constraintStart_toStartOf="@+id/register_button_registration"
         app:layout_constraintTop_toBottomOf="@+id/register_button_registration" />
