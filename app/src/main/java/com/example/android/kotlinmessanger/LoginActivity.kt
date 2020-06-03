@@ -1,5 +1,6 @@
 package com.example.android.kotlinmessanger
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -37,11 +38,15 @@ class LoginActivity: AppCompatActivity(){
             .addOnCompleteListener {
                 if(!it.isSuccessful) return@addOnCompleteListener
 
-                Log.d("Main","Successfully logged in user with uid: ${it.result?.user?.uid}")
+                Log.d("LoginActivity","Successfully logged in user with uid: ${it.result?.user?.uid}")
+                val intent= Intent(this,LatestMessagesActivity::class.java)
+                intent.flags= Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
+
             }
 
             .addOnFailureListener {
-                Log.d("Main", "Failed to log user: ${it.message}")
+                Log.d("LoginActivity", "Failed to log user: ${it.message}")
             }
     }
 }

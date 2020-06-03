@@ -113,6 +113,11 @@ class RegisterActivity : AppCompatActivity() {
             .addOnFailureListener {
                 Log.d("RegisterActivity","Failed to save user to database: ${it.message}")
             }
+        val intent=Intent(this,LatestMessagesActivity::class.java)
+        intent.flags= Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
     }
 }
- class User(val uid: String,val username:String, val profileImageUrl: String)
+ class User(val uid: String,val username:String, val profileImageUrl: String){
+     constructor(): this("","", "")
+ }
