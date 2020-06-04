@@ -6,6 +6,7 @@ import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Parcelable
 import android.provider.MediaStore
 import android.util.Log
 import android.widget.Toast
@@ -118,6 +119,3 @@ class RegisterActivity : AppCompatActivity() {
         startActivity(intent)
     }
 }
- class User(val uid: String,val username:String, val profileImageUrl: String){
-     constructor(): this("","", "")
- }

@@ -1,5 +1,6 @@
 package com.example.android.kotlinmessanger
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -37,6 +38,11 @@ class NewMessageActivity : AppCompatActivity() {
         fetchUsers()
 
     }
+
+    companion object{
+        val USER_KEY="USER_KEY"
+    }
+
     private fun fetchUsers(){
         val ref= FirebaseDatabase.getInstance().getReference("/users")
         ref.addListenerForSingleValueEvent(object : ValueEventListener{
@@ -50,6 +56,15 @@ class NewMessageActivity : AppCompatActivity() {
                         adapter.add(UserItem(user))
                     }
                 }
+                adapter.setOnItemClickListener { item, view ->
+                    val UserItem= item as UserItem
+
+                    val intent=Intent(view.context,ChatLogActivity::class.java)
+                    intent.putExtra(USER_KEY, UserItem.user)
+                    startActivity(intent)
+                    finish()
+                }
+
                 recycleview_newmessage.adapter= adapter
             }
 
