@@ -51,7 +51,14 @@ class ChatLogActivity : AppCompatActivity() {
         val toId = toUser?.uid
         val ref = FirebaseDatabase.getInstance().getReference("/user-messages/$fromId/$toId")
 
+<<<<<<< HEAD
         ref.addChildEventListener(object: ChildEventListener {
+=======
+    private fun listenForMessage(){
+        val fromId=FirebaseAuth.getInstance().uid
+        val toId=toUser!!.uid
+        val ref=FirebaseDatabase.getInstance().getReference("/user-messages/$fromId/$toId")
+>>>>>>> 262e29a93e648bb983d08e17f85455d416106925
 
             override fun onChildAdded(p0: DataSnapshot, p1: String?) {
                 val chatMessage = p0.getValue(ChatMessage::class.java)
@@ -92,10 +99,16 @@ class ChatLogActivity : AppCompatActivity() {
     private fun performSendMessage() {
         // how do we actually send a message to firebase...
 
+<<<<<<< HEAD
         val text = edittext_chatLog.text.toString()
+=======
+        //val refer=FirebaseDatabase.getInstance().getReference("/messages").push()
+        val fromId= FirebaseAuth.getInstance().uid
+>>>>>>> 262e29a93e648bb983d08e17f85455d416106925
 
         val fromId = FirebaseAuth.getInstance().uid
         val user = intent.getParcelableExtra<User>(NewMessageActivity.USER_KEY)
+<<<<<<< HEAD
         val toId = user.uid
 
         if (fromId == null) return
@@ -112,6 +125,22 @@ class ChatLogActivity : AppCompatActivity() {
                 Log.d(TAG, "Saved our chat message: ${reference.key}")
                 edittext_chatLog.text.clear()
                 recycleView_ChatLog.scrollToPosition(adapter.itemCount - 1)
+=======
+        val toId=user.uid
+        val refer=FirebaseDatabase.getInstance().getReference("/user-messages/$fromId/$toId").push()
+        val to_refer=FirebaseDatabase.getInstance().getReference("/user-messages/$toId/$fromId").push()
+        val chatMessage= ChatMessage(refer.key!!, text, fromId!!, toId, System.currentTimeMillis()/1000)
+        refer.setValue(chatMessage)
+            .addOnSuccessListener {
+                Log.d(TAG,"Saved our chat msg ${refer.key}")
+                edittext_chatLog.text.clear()
+                recycleView_ChatLog.scrollToPosition(adapter.itemCount-1)
+            }
+
+        to_refer.setValue(chatMessage)
+            .addOnSuccessListener {
+                Log.d(TAG,"Saved our chat msg ${refer.key}")
+>>>>>>> 262e29a93e648bb983d08e17f85455d416106925
             }
 
         toReference.setValue(chatMessage)
