@@ -19,10 +19,12 @@ import java.util.*
 class RegisterActivity : AppCompatActivity() {
 
     var selectedphotoUri: Uri? = null
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        auth= FirebaseAuth.getInstance()
 
         image_button_register.setOnClickListener {
             val intent=Intent(Intent.ACTION_PICK)
@@ -53,8 +55,7 @@ class RegisterActivity : AppCompatActivity() {
             selectphoto_imageview_register.setImageBitmap(bitmap)
             image_button_register.alpha = 0f
 
-         //   val bitmapDrawable= BitmapDrawable(bitmap)
-         //   image_button_register.setBackgroundDrawable(bitmapDrawable)
+
         }
     }
 
@@ -70,7 +71,7 @@ class RegisterActivity : AppCompatActivity() {
         Log.d("MainActivity","Email is"+ email)
         Log.d("MainActivity","Password is $password")
 
-        FirebaseAuth.getInstance().createUserWithEmailAndPassword(email,password)
+        auth.createUserWithEmailAndPassword(email,password)
             .addOnCompleteListener {
                 if(!it.isSuccessful) return@addOnCompleteListener
 
@@ -102,7 +103,7 @@ class RegisterActivity : AppCompatActivity() {
      }
 
     private fun saveUserToFirebaseDatabase(profileImageUrl: String){
-        val uid= FirebaseAuth.getInstance().uid ?: ""
+        val uid= auth.uid ?: ""
         val ref= FirebaseDatabase.getInstance().getReference("/users/$uid")
 
         val user=User(uid,username_editText_registration.text.toString(),profileImageUrl)
