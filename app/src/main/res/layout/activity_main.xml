@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
+    android:background="#303841"
     tools:context=".RegisterActivity">
 
     <ImageButton
@@ -32,6 +32,7 @@
         android:hint="Username"
         android:inputType="textPersonName"
         android:paddingLeft="16dp"
+        android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_button_register" />
@@ -46,6 +47,7 @@
         android:hint="Email"
         android:inputType="textEmailAddress"
         android:paddingLeft="16dp"
+        android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="@+id/username_editText_registration"
         app:layout_constraintStart_toStartOf="@+id/username_editText_registration"
         app:layout_constraintTop_toBottomOf="@+id/username_editText_registration" />
@@ -60,6 +62,7 @@
         android:hint="Password"
         android:inputType="textPassword"
         android:paddingLeft="16dp"
+        android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="@+id/email_editText_registration"
         app:layout_constraintStart_toStartOf="@+id/email_editText_registration"
         app:layout_constraintTop_toBottomOf="@+id/email_editText_registration" />
@@ -71,7 +74,7 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/rounded_button"
         android:text="Register"
-        android:textColor="@android:color/white"
+        android:textColor="#3a4750"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/password_editText_registration"
         app:layout_constraintStart_toStartOf="@+id/password_editText_registration"
@@ -83,9 +86,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Already have an Account?"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="16sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/register_button_registration"
         app:layout_constraintStart_toStartOf="@+id/register_button_registration"
         app:layout_constraintTop_toBottomOf="@+id/register_button_registration" />
@@ -94,6 +96,7 @@
         android:id="@+id/selectphoto_imageview_register"
         android:layout_width="150dp"
         android:layout_height="150dp"
+        android:contentDescription="Add Photo"
         app:layout_constraintBottom_toBottomOf="@+id/image_button_register"
         app:layout_constraintEnd_toEndOf="@+id/image_button_register"
         app:layout_constraintStart_toStartOf="@+id/image_button_register"

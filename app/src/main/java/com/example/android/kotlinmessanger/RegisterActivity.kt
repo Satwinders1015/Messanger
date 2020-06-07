@@ -24,6 +24,8 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
         auth= FirebaseAuth.getInstance()
 
         image_button_register.setOnClickListener {

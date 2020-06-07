@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">KotlinMessanger</string>
+    <string name="app_name">Messanger</string>
     <string name="back_to_registration">Back to registration</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
